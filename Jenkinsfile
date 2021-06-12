@@ -19,6 +19,7 @@ pipeline {
             }
 
             steps {
+                cleanWs()
                 sh './gradlew clean build '
             }
 
@@ -31,9 +32,7 @@ pipeline {
                     echo 'build failed'
                 }
 
-                always {
-                    cleanWs()
-                }
+
             }
         }
 
