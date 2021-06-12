@@ -15,7 +15,7 @@ pipeline {
         stage('Build Gradle') {
             agent{
                 docker {
-                    image 'adoptopenjdk:8-jre-alpine'
+                    image 'openjdk:8-jre-alpine'
                     args '-v $HOME/.gradle:/root/.gradle'
                 }
             }

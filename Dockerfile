@@ -1,4 +1,4 @@
-FROM adoptopenjdk:8-jre-alpine
+FROM openjdk:8-jre-alpine
 
 ARG app
 ADD $app app.jar
