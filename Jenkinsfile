@@ -55,7 +55,8 @@ pipeline {
                 APP_NAME='deploy-test'
             }
             steps{
-                sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose.yml up -d --build -no--cache"
+                sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -f docker-compose.yml rm -f"
+                sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose.yml build --no-cache && docker-compose -f docker-compose.yml up -d"
             }
 
             post {

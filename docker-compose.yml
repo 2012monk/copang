@@ -4,7 +4,6 @@ services:
     container_name: api-server
     environment:
       - 'TZ=Asia/Seoul'
-
     build:
       context: .
       dockerfile: Dockerfile
