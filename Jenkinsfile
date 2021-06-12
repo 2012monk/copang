@@ -30,6 +30,10 @@ pipeline {
                 failure {
                     echo 'build failed'
                 }
+
+                always {
+                    cleanWs()
+                }
             }
         }
 
