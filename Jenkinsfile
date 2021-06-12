@@ -38,7 +38,7 @@ pipeline {
                 APP_NAME='deploy-test'
             }
             steps {
-                sh 'DOCKER_HOST=${DOCKER_HOST} docker images'
+                sh 'docker -H ${DOCKER_HOST} images'
             }
 
             post {
