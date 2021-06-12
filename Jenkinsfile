@@ -20,7 +20,7 @@ pipeline {
             }
 
             steps {
-                cleanWs()
+
                 sh './gradlew clean build '
             }
 
