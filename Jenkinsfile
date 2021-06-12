@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_HOST='3.37.2.79:2375'
-        APP_NAME='deploy-test'
-    }
+
     stages {
         stage('Prepare') {
             steps {
@@ -36,6 +33,10 @@ pipeline {
         }
 
         stage('docker test') {
+            environment {
+                DOCKER_HOST='3.37.2.79:2375'
+                APP_NAME='deploy-test'
+            }
             steps {
                 sh 'DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose.yml up && docker-compose rm -fsv'
             }
