@@ -49,6 +49,10 @@ pipeline {
         }
 
         stage('deploy docker image') {
+            environment {
+                DOCKER_HOST='3.37.2.79:2375'
+                APP_NAME='deploy-test'
+            }
             steps{
                 sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose up -d"
             }
