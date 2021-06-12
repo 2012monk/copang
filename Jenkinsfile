@@ -37,7 +37,9 @@ pipeline {
         }
 
         stage('deploy docker image') {
-            sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose up -d"
+            steps{
+                sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose up -d"
+            }
         }
     }
 }
