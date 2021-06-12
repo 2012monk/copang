@@ -35,6 +35,18 @@ pipeline {
             }
         }
 
+        stage('docker test') {
+            steps {
+                sh 'DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose.yml up && docker-compose rm -fsv'
+            }
+
+            post {
+                failure {
+                    sh 'connection failed'
+                }
+            }
+        }
+
         stage('deploy docker image') {
             steps{
                 sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose up -d"
