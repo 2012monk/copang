@@ -6,7 +6,6 @@ pipeline {
         APP_NAME='deploy-test'
     }
     stages {
-
         stage('Prepare') {
             steps {
                 check scm
@@ -39,6 +38,12 @@ pipeline {
         stage('deploy docker image') {
             steps{
                 sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose up -d"
+            }
+
+            post {
+                success {
+                    echo 'sueccess deployment'
+                }
             }
         }
     }
