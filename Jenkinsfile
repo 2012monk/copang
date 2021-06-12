@@ -5,6 +5,7 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
+                cleanWs()
                 checkout scm
             }
         }
