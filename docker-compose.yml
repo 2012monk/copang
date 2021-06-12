@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        app: ./build/libs/*.jar
+        app: /build/libs/*.jar
 
     ports:
     - "80:8080"
