@@ -54,7 +54,7 @@ pipeline {
                 APP_NAME='deploy-test'
             }
             steps{
-                sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose up -d"
+                sh "DOCKER_HOST=${DOCKER_HOST} docker-compose -p ${APP_NAME} -f docker-compose.yml up -d"
             }
 
             post {
