@@ -15,6 +15,7 @@ pipeline {
                 docker {
                     image 'openjdk:8-jdk-alpine'
                     args '-v $HOME/.gradle:/root/.gradle'
+                    reuseNode true
                 }
             }
 
