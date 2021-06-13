@@ -42,6 +42,7 @@ pipeline {
             }
             steps {
                 sh 'docker -H ${DOCKER_HOST} images'
+                sh 'ls -al'
             }
 
             post {
