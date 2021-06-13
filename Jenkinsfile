@@ -6,6 +6,8 @@ pipeline {
 
     stages {
         stage('Prepare') {
+            agent any
+
             steps {
                 cleanWs()
                 checkout scm
@@ -56,6 +58,7 @@ pipeline {
         }
 
         stage('deploy docker image') {
+            agent any
             environment {
                 DOCKER_HOST='172.31.44.254:2375'
                 APP_NAME='deploy-test'
