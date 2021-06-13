@@ -1,13 +1,11 @@
 pipeline {
-    agent any
     environment {
         HOME = "."
     }
 
+    agent any
     stages {
         stage('Prepare') {
-            agent any
-
             steps {
                 cleanWs()
                 checkout scm
@@ -19,7 +17,6 @@ pipeline {
                 docker {
                     image 'openjdk:8-jdk-alpine'
                     args '-v $HOME/.gradle:/root/.gradle'
-                    args '-v .:/'
                     reuseNode true
                 }
             }
