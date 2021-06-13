@@ -1,7 +1,4 @@
 pipeline {
-    environment {
-        HOME = "."
-    }
 
     agent any
     stages {
