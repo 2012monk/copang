@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        HOME = "."
+    }
 
     stages {
         stage('Prepare') {
@@ -15,6 +17,7 @@ pipeline {
                 docker {
                     image 'openjdk:8-jdk-alpine'
                     args '-v $HOME/.gradle:/root/.gradle'
+                    args '-v .:/'
                     reuseNode true
                 }
             }
