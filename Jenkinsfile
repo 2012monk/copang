@@ -40,10 +40,9 @@ pipeline {
             }
         }
 
-        stage('docker test') {
+        stage('docker vpc test') {
             environment {
-                DOCKER_HOST='3.37.2.79:2375'
-                APP_NAME='deploy-test'
+                DOCKER_HOST='172.31.44.254:2375'
             }
             steps {
                 sh 'docker -H ${DOCKER_HOST} images'
@@ -58,7 +57,7 @@ pipeline {
 
         stage('deploy docker image') {
             environment {
-                DOCKER_HOST='3.37.2.79:2375'
+                DOCKER_HOST='172.31.44.254:2375'
                 APP_NAME='deploy-test'
             }
             steps{
