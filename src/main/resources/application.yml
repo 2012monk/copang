@@ -4,8 +4,8 @@ spring:
       driver-class-name: org.h2.Driver
       maximumPoolSize: 10
       username: sa
-      jdbc-url: jdbc:h2:tcp://localhost/~/test2
-
+      jdbc-url: jdbc:h2:mem:test
+#      jdbc-url: jdbc:h2:tcp://localhost/~/test2
   jpa:
     show-sql: true
     open-in-view: true
